@@ -131,6 +131,25 @@ html {
     color: #8c363e;
 }
 
+.main-nav button {
+    height: 60px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #8c363e;
+    width: 100%;
+    border-top: 1px solid #fff;
+    width: 80%;
+
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+.main-nav button:hover {
+    background: #e3e3e3; 
+    color: #8c363e;
+}
+
 /* Sidebar Menu */
 
 .menu .image {
