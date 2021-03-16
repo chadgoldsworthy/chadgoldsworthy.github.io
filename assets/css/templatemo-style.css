@@ -418,7 +418,17 @@ button:hover {
 
 /* Left & Right Post */
 
-.right-image-post {
+right-image-post {
+    padding-top: 60px;
+}
+
+.portfolio-notfirst .right-image-post {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px solid rgba(250, 250, 250, 0.1);
+}
+
+.portfolio-notfirst .left-image-post {
     margin-top: 60px;
     padding-top: 60px;
     border-top: 2px solid rgba(250, 250, 250, 0.1);
