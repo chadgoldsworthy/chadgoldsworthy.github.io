@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../scripts/navbar.js" defer></script>
+    <title>Chad Goldsworthy</title>
+
+    <style>
+        /* Form Styling */
+        .contact-section {
+          width: 100%;
+          margin-top: 20px;
+        }
+        
+        .contact-form {
+          background: #f9f9f9;
+          border-radius: 5px;
+          padding: 50px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+          margin-bottom: 20px;
+        }
+        
+        .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 500;
+          color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+          width: 100%;
+          padding: 10px 0px 10px 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 16px;
+          transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+          border-color: #4a6fa5;
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+        
+        .submit-btn {
+          background-color: #023047;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 16px;
+          font-weight: 500;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          display: block;
+          width: 100%;
+          margin-top: 10px;
+          position: relative;
+        }
+        
+        .submit-btn:hover {
+          background-color: #3a5a8c;
+        }
+        
+        /* Success and error messages */
+        .success-message,
+        .error-message {
+          display: none;
+          background: #f9f9f9;
+          border-radius: 5px;
+          padding: 30px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .success-message {
+          border-left: 4px solid #4CAF50;
+        }
+        
+        .error-message {
+          border-left: 4px solid #F44336;
+        }
+        
+        .success-message i,
+        .error-message i {
+          font-size: 48px;
+          margin-bottom: 15px;
+        }
+        
+        .success-message i {
+          color: #4CAF50;
+        }
+        
+        .error-message i {
+          color: #F44336;
+        }
+        
+        .success-message h3,
+        .error-message h3 {
+          margin-bottom: 10px;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+          display: none;
+          width: 20px;
+          height: 20px;
+          border: 3px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          border-top-color: #fff;
+          animation: spin 0.8s ease infinite;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        
+        @keyframes spin {
+          to {
+            transform: translateY(-50%) rotate(360deg);
+          }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .contact-form {
+            padding: 20px;
+          }
+        }
+      </style>
+</head>
+<body>
+
+    <!-- Include navbar -->
+    <object class="navbar" type="text/html" data="../navbar.html" style="width:100%; height:100vh; border:none; position: fixed; margin-top: 0px"></object>
+    <div class="corner-gif"><img src="../sleepy_cat.gif" alt="Corner animation"></div>
+
+    <div class="content">
+        <h1>Contact Me</h1>
+        <p>
+            Please use the form below to get in touch with me.
+        </p>
+
+        <!-- Success Message (hidden by default) -->
+        <div id="success-message" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. I'll get back to you soon!</p>
+        </div>
+        
+        <!-- Error Message (hidden by default) -->
+        <div id="error-message" class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Oops!</h3>
+            <p>Something went wrong. Please try again or contact me directly.</p>
+        </div>
+
+        <section class="contact-section">
+            <form id="contact-form" action="https://formspree.io/f/xnqokrrk" method="POST" class="contact-form">
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              
+              <!-- Email Field -->
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <!-- Subject Field -->
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject">
+              </div>
+              
+              <!-- Message Field -->
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              
+              <!-- Submit Button -->
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="spinner" id="spinner"></span>
+              </button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const spinner = document.getElementById('spinner');
+            
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Show loading spinner
+                    spinner.style.display = 'block';
+                    
+                    // Prepare form data
+                    const formData = new FormData(form);
+                    const data = new URLSearchParams(formData);
+                    
+                    // Submit form using fetch API
+                    fetch('https://formspree.io/f/xnqokrrk', {
+                        method: 'POST',
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        spinner.style.display = 'none';
+                        
+                        if (response.ok) {
+                            // Show success message
+                            form.style.display = 'none';
+                            successMessage.style.display = 'block';
+                            
+                            // Reset the form
+                            form.reset();
+                            
+                            // Optional: Hide success message and show form again after some time
+                            setTimeout(function() {
+                                successMessage.style.display = 'none';
+                                form.style.display = 'block';
+                            }, 20000);  // Show for 5 seconds
+                            
+                            return response.json();
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        // Show error message
+                        spinner.style.display = 'none';
+                        errorMessage.style.display = 'block';
+                        
+                        // Hide error message after some time
+                        setTimeout(function() {
+                            errorMessage.style.display = 'none';
+                        }, 20000);  // Show for 5 seconds
+                        
+                        console.error('Error:', error);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

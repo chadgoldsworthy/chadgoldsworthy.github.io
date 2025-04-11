@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    
+    <script src="../scripts/navbar.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js" defer></script>
+    
+    <title>Chad Goldsworthy</title>
+    
+    <script>
+        // Function to fetch code files and insert them into the page
+        async function loadCodeBlock(elementId, filePath, language) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}`);
+                }
+                const code = await response.text();
+                const codeElement = document.getElementById(elementId);
+                codeElement.textContent = code;
+                codeElement.className = `language-${language}`;
+                
+                // Re-highlight the code with Prism
+                Prism.highlightElement(codeElement);
+                
+                // Add the filename as a title above the code block
+                const titleElement = document.getElementById(`${elementId}-title`);
+                if (titleElement) {
+                    const filename = filePath.split('/').pop();
+                    titleElement.textContent = filename;
+                }
+            } catch (error) {
+                console.error(`Error loading code block: ${error}`);
+                document.getElementById(elementId).textContent = `Error loading code: ${error.message}`;
+            }
+        }
+        
+        // Load all code blocks when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load each code block (add more as needed)
+            loadCodeBlock('code-block-1', '../../code_samples/python/analytics.py', 'python');
+            loadCodeBlock('code-block-2', '../../code_samples/python/event_manager.py', 'python');
+            loadCodeBlock('code-block-3', '../../code_samples/python/pipeline_manager.py', 'python');
+            loadCodeBlock('code-block-4', '../../code_samples/python/trigger_manager.py', 'python');
+            loadCodeBlock('code-block-5', '../../code_samples/python/ServiceBusQueueTrigger.py', 'python');
+            loadCodeBlock('code-block-6', '../../code_samples/python/CheckEventsTriggeredStatus.py', 'python');
+            // Add more blocks as needed
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Include navbar -->
+    <object class="navbar" type="text/html" data="../navbar.html"
+        style="width:100%; height:100vh; border:none; position: fixed; margin-top: 0px"></object>
+        <div class="corner-gif"><img src="../sleepy_cat.gif" alt="Corner animation"></div>
+
+    <div class="content">
+        <h1>Python Code Examples</h1>
+        <p>
+            The examples below are from one of my Azure function apps that I created, using a service bus to manage pipeline triggers for 
+            an Azure synapse workspace. I have included some of the helper functions, as well as the main function that processes the triggers.
+        </p>
+        
+        <!------------ Helper Functions ------------>
+        <br><br>
+        <h2>Helper Functions</h2>
+        <!-- Code block 1 -->
+        <div class="code-section">
+            <div class="file-title">
+                <h4 id="code-block-1-title">Loading...</h3>
+            </div>
+            
+            <div class="code-container">
+                <pre><code id="code-block-1">Loading code...</code></pre>
+            </div>
+        </div>
+        
+        <!-- Code block 2 -->
+        <div class="code-section">
+            <!-- <h2>Data Processing</h2>
+            <p>This code processes the fetched task data and prepares it for analysis.</p> -->
+            <div class="file-title">
+                <h4 id="code-block-2-title">Loading...</h3>
+            </div>
+            <div class="code-container">
+                <pre><code id="code-block-2">Loading code...</code></pre>
+            </div>
+        </div>
+        
+        <!-- Code block 3 -->
+        <div class="code-section">
+            <div class="file-title">
+                <h4 id="code-block-3-title">Loading...</h3>
+            </div>
+            <div class="code-container">
+                <pre><code id="code-block-3">Loading code...</code></pre>
+            </div>
+        </div>
+        
+        <!-- Code block 4 -->
+        <div class="code-section">
+            <div class="file-title">
+                <h4 id="code-block-4-title">Loading...</h3>
+            </div>
+            <div class="code-container">
+                <pre><code id="code-block-4">Loading code...</code></pre>
+            </div>
+        </div>
+
+        <!------------ Function Apps ------------>
+        <br><br>
+        <h2>Azure Functions</h2>
+        <!-- Code block 5 -->
+        <div class="code-section">
+            <div class="file-title">
+                <h4 id="code-block-5-title">Loading...</h3>
+            </div>
+            
+            <div class="code-container">
+                <pre><code id="code-block-5">Loading code...</code></pre>
+            </div>
+        </div>
+        
+        <!-- Code block 6 -->
+        <div class="code-section">
+            <div class="file-title">
+                <h4 id="code-block-6-title">Loading...</h3>
+            </div>
+            
+            <div class="code-container">
+                <pre><code id="code-block-6">Loading code...</code></pre>
+            </div>
+        </div>
+        
+        <br><br>
+        <p>
+            Please get in contact with me if you would like to see the rest of this function app, or any other python samples. 
+        </p>
+
+    </div>
+    
+</body>
+</html>

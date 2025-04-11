@@ -1,0 +1,162 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    
+    <script src="../scripts/navbar.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js" defer></script>
+
+<title>Chad Goldsworthy</title>
+
+<script>
+    // Function to fetch code files and insert them into the page
+    async function loadCodeBlock(elementId, filePath, language) {
+        try {
+            const response = await fetch(filePath);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}`);
+            }
+            const code = await response.text();
+            const codeElement = document.getElementById(elementId);
+            codeElement.textContent = code;
+            codeElement.className = `language-${language}`;
+            
+            // Re-highlight the code with Prism
+            Prism.highlightElement(codeElement);
+            
+            // Add the filename as a title above the code block
+            const titleElement = document.getElementById(`${elementId}-title`);
+            if (titleElement) {
+                const filename = filePath.split('/').pop();
+                titleElement.textContent = filename;
+            }
+        } catch (error) {
+            console.error(`Error loading code block: ${error}`);
+            document.getElementById(elementId).textContent = `Error loading code: ${error.message}`;
+        }
+    }
+    
+    // Load all code blocks when the page loads
+    window.addEventListener('DOMContentLoaded', () => {
+        // Load each code block (add more as needed)
+        loadCodeBlock('code-block-1', '../../code_samples/azure/trigger_notebook.py', 'python');
+        loadCodeBlock('code-block-2', '../../code_samples/azure/orchestrator.py', 'python');
+        loadCodeBlock('code-block-3', '../../code_samples/azure/execute_notebook.py', 'python');
+        // Add more blocks as needed
+    });
+</script>
+</head>
+
+<body>
+
+<!-- Include navbar -->
+<object class="navbar" type="text/html" data="../navbar.html"
+    style="width:100%; height:100vh; border:none; position: fixed; margin-top: 0px"></object>
+    <div class="corner-gif"><img src="../sleepy_cat.gif" alt="Corner animation"></div>
+
+<div class="content">
+    <h1>Azure Projects</h1>
+    <p>
+        I have included examples from a range of different Azure resources for a general view of my experience. A more detailed
+        example of one of my Azure function apps can be seen in the <a id="portfolio-python" href="portfolio-python.html" target="_parent">Python page</a>.
+    </p>
+    
+    <!------------ Data Factory Pipelines ------------>
+    <br><br>
+    <h2>Data Factory Pipelines</h2>
+
+    <h4>execute_notebook</h4>
+    <p>
+        This pipeline executes a durable Azure function app, monitors its status until the run completes, and then 
+        returns the appropriate output. This was used to execute an .ipynb python notebook through an Azure function app.
+    <br><br>    
+    <img src="../../images/azure/pipeline_execute_notebook.png" alt="Data Factory Pipeline" class="portfolio-image">    
+    </p>
+    <h4>mis_summary</h4>
+    <p>
+        This pipeline executes a calculation stored procedure to populate an aggregate table. There is retry logic
+        in place to account for a resource lock error which sometimes occurs when too many pipelines are 
+        querying the transaction table that this stored procedures pulls data from.
+    <br><br>    
+    <img src="../../images/azure/pipeline_mis_summary.png" alt="Data Factory Pipeline" class="portfolio-image">    
+    </p>
+
+    <!------------ Data Factory Dataflow ------------>
+    <br><br>
+    <h2>Data Factory Dataflow</h2>
+
+    <h4>dflow_service_users</h4>
+    <p>
+        This data flows loads a json file retrieved from an API, and then performs a series of transformations
+        before loading the data into a SQL table. The transformations include flattening the json data, validating 
+        the data, performing lookups and deriving values.
+    <br><br>    
+    <img src="../../images/azure/dataflow_patient.png" alt="Data Factory Pipeline" class="portfolio-image">    
+    </p>
+    
+    <br><br>
+    <h2>Function App</h2>
+    <p>
+        The below function app was creating to execute jupyter notebooks. The function has an HTTP trigger, which 
+        executes an orchestrator function that monitors the status of the notebook execution. The orchestrator function
+        is a durable function, which allows for long-running operations. The orchestrator executes the activity function, 
+        which executes the notebook using papermill. Below are the three main functions used.
+    </p>
+    <!-- Code block 1 -->
+    <div class="code-section">
+        <div class="file-title">
+            <h4 id="code-block-1-title">Loading...</h3>
+        </div>
+        
+        <div class="code-container">
+            <pre><code id="code-block-1">Loading code...</code></pre>
+        </div>
+    </div>
+    <!-- Code block 2 -->
+    <div class="code-section">
+        <div class="file-title">
+            <h4 id="code-block-2-title">Loading...</h3>
+        </div>
+        
+        <div class="code-container">
+            <pre><code id="code-block-2">Loading code...</code></pre>
+        </div>
+    </div>
+    <!-- Code block 3 -->
+    <div class="code-section">
+        <div class="file-title">
+            <h4 id="code-block-3-title">Loading...</h3>
+        </div>
+        
+        <div class="code-container">
+            <pre><code id="code-block-3">Loading code...</code></pre>
+        </div>
+    </div>
+    
+    <!------------ Logic App ------------>
+    <br><br>
+    <h2>Logic App</h2>
+    
+    <h4>FetchSourceFiles</h4>
+    <p>
+        This logic app was used as a file listener to copy a list of source files from an SFTP into an Azure blob storage container.
+    <br><br>    
+    <img src="../../images/azure/logicapp_fetch_source_files.png" alt="Data Factory Pipeline" class="portfolio-image">    
+    </p>
+    <h4>GetPipelineAnalytics</h4>
+    <p>
+        This logic app was used to get pipeline log data from an analytics workspace and save it into azure blob storage.
+        This would subsequently be used to load the data into a SQL table for reporting.
+    <br><br>    
+    <img src="../../images/azure/logicapp_get_pipeline_analytics.png" alt="Data Factory Pipeline" class="portfolio-image">    
+    </p>
+
+</div>
+
+</body>
+</html>

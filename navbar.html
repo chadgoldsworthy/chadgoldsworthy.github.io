@@ -1,0 +1,138 @@
+
+
+<nav class="navbar">
+    <img src="profile_img.png" alt="Profile Picture">
+    <h2>Chad Goldsworthy</h2>
+    <h3>
+        <strong>Data Engineer</strong><br>
+        Cape Town, South Africa<br>
+        chadgoldsworthy@gmail.com
+    </h3>
+    <ul>
+        <li>
+            <a href="pages/portfolio.html" target="_parent"><strong>Portfolio:</strong></a>
+            <ul class="sub-menu">
+                <li><a id="portfolio-python" href="pages/portfolio-python.html" target="_parent">Python</a></li>
+                <li><a id="portfolio-sql" href="pages/portfolio-sql.html" target="_parent">SQL</a></li>
+                <li><a id="portfolio-azure" href="pages/portfolio-azure.html" target="_parent">Azure</a></li>
+                <li><a id="portfolio-powerbi" href="pages/portfolio-powerbi.html" target="_parent">Power BI</a></li>
+        </ul>
+        </li>
+        <!-- <li><a id="about-me" class="main-menu" href="pages/about-me.html" target="_parent">About Me</a></li>
+        <li><a class="main-menu" href="index.html" target="_parent">Education</a></li>
+        <li><a class="main-menu" href="index.html" target="_parent">Work Experience</a></li> -->
+        <li><a id="contact" class="main-menu" href="pages/contact.html" target="_parent">Contact</a></li>
+    </ul>
+</nav>
+
+<style>
+
+body {
+    font-family: 'Courier New', Courier, monospace;    
+}
+
+.navbar {
+    width: 220px;
+    /* background: linear-gradient(160deg, rgba(99,173,242,1) 0%, rgb(10, 20, 30) 90%); */
+    background: linear-gradient(160deg, #219ebc 0%, #023047 50%);
+    /* background-color: #545E75; */
+    color: white;
+    height: 100vh;
+    position: fixed;
+    padding: 20px;
+    padding-top: 20px;
+    /* border: 20px solid #3c424e; */
+    top: 0;
+    left: 0;
+}
+
+
+.navbar img {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+.navbar h2 {
+    /* margin: 0 0 20px 0; */
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.navbar h3 {
+    margin: 0 0 20px 0;
+    text-align: left;
+    font-size: 15px;
+    font-weight: normal;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.496);
+    line-height: 1.5;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.navbar ul li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+.navbar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make the link fill the list item */
+    padding: 5px 20px; /* Padding for main options */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+/* Sub-menu styles with different left padding */
+.navbar .sub-menu a {
+    padding-left: 40px; /* Increased left padding for sub-options */
+    font-size: 0.9em; /* Slightly smaller font size for sub-options */
+}
+
+.navbar li:hover .main-menu {
+    background-color: #ffb703; /* Background color on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar a.active {
+    background-color: #ffb703; /* Background color on hover */
+    color: #000000; /* Text color on hover */
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.sub-menu a:hover {
+    background-color: #ffb703; /* Background color on hover */
+    color: #000000; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.main-menu a:hover {
+    background-color: #ffb703; /* Background color on hover */
+    color: #000000; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Auto height for better display */
+    }
+
+    .navbar a {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar .sub-menu a {
+        padding-left: 30px; /* Adjust padding for sub-options on smaller screens */
+    }
+}
+
+</style>

@@ -1,0 +1,179 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(140deg, rgba(255,255,255,1) 50%, rgba(99,173,242,1) 150%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+.navbar {
+    margin-left: 50px;
+    top: 0;
+    left: 0px;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+    margin-left: 350px;
+    padding: 20px;
+    width: calc(100% - 500px);
+    box-sizing: border-box;
+}
+
+.content p {
+    background-color: #e8e8e8a2;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.content p button {
+    font-weight: bold;
+    padding: 10px 20px;
+    width: 20%;
+}
+
+.code-container {
+    max-width: 100%;
+    height: 300px !important;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background: #f3f3f3;
+    overflow: auto;
+    position: relative;
+    height: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+pre {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    white-space: pre-wrap;
+    font-size: 16px;
+    line-height: 0.5 !important;
+    background: #f3f3f3 !important;
+}
+
+code {
+    font-size: 10px !important;
+    color: #333 ;
+}
+
+
+.portfolio-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.portfolio-section .portfolio-button {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    border-width: 0px;
+    width: 150px !important;
+    min-width: 150px;
+    max-width: 150px;
+    height: 80%;
+    white-space: pre-line;
+    text-align: center;
+    margin-right: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Keep text color consistent */
+    background-color: #f0f0f0; /* Or whatever your button background color is */
+    cursor: pointer;
+}
+
+.portfolio-section .portfolio-button:hover {
+    background-color: #365470a9;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    height: 100%;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center; /* This vertically centers the text */
+    background-color: #ffffff00 !important;
+    line-height: 1.2 !important;
+}
+
+
+.portfolio-image {
+    width: 100%;
+    /* height: 80px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.image-section {
+    margin: 40px 0;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.image-container {
+    flex: 1;
+    max-width: 48%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-caption {
+    margin-top: 10px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+
+
+.corner-gif {
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    z-index: 100;
+    width: 100px; 
+    height: auto;
+}
+
+.corner-gif img {
+    width: 100%;
+    height: auto;
+    animation: restart 1s linear infinite;
+  }
+  
+  @keyframes restart {
+    0% { opacity: 1; }
+    99.99% { opacity: 1; }
+    100% { opacity: 0.99; } /* Tiny change forces a redraw */
+  }
