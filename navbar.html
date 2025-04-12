@@ -1,12 +1,15 @@
 
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
 <nav class="navbar">
     <img src="profile_img.png" alt="Profile Picture">
     <h2>Chad Goldsworthy</h2>
     <h3>
-        <strong>Data Engineer</strong><br>
-        Cape Town, South Africa<br>
-        chadgoldsworthy@gmail.com
+        <i class="fas fa-briefcase"></i> <strong>Data Engineer</strong><br>
+        <i class="fas fa-map-marker-alt"></i> Cape Town, South Africa<br>
+        <i class="fas fa-envelope"></i> chadgoldsworthy@gmail.com
     </h3>
     <ul>
         <li>
@@ -16,11 +19,11 @@
                 <li><a id="portfolio-sql" href="pages/portfolio-sql.html" target="_parent">SQL</a></li>
                 <li><a id="portfolio-azure" href="pages/portfolio-azure.html" target="_parent">Azure</a></li>
                 <li><a id="portfolio-powerbi" href="pages/portfolio-powerbi.html" target="_parent">Power BI</a></li>
-        </ul>
+            </ul>
         </li>
-        <!-- <li><a id="about-me" class="main-menu" href="pages/about-me.html" target="_parent">About Me</a></li>
-        <li><a class="main-menu" href="index.html" target="_parent">Education</a></li>
-        <li><a class="main-menu" href="index.html" target="_parent">Work Experience</a></li> -->
+        <h3></h3>
+        <li><a id="about-me" class="main-menu" href="pages/about-me.html" target="_parent">About Me</a></li>
+        <li><a id="education-experience" class="main-menu" href="pages/education-experience.html" target="_parent">Education & Experience</a></li>
         <li><a id="contact" class="main-menu" href="pages/contact.html" target="_parent">Contact</a></li>
     </ul>
 </nav>
@@ -65,11 +68,17 @@ body {
 .navbar h3 {
     margin: 0 0 20px 0;
     text-align: left;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: normal;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.496);
     line-height: 1.5;
+}
+
+.navbar h3 i {
+    width: 20px;
+    margin-right: 5px;
+    text-align: center;
 }
 
 .navbar ul {

@@ -62,7 +62,7 @@
 <div class="content">
     <h1>Azure Projects</h1>
     <p>
-        I have included examples from a range of different Azure resources for a general view of my experience. A more detailed
+        I have included examples from a range of different Azure resources for a general overview of my experience. A more detailed
         example of one of my Azure function apps can be seen in the <a id="portfolio-python" href="portfolio-python.html" target="_parent">Python page</a>.
     </p>
     
@@ -73,7 +73,7 @@
     <h4>execute_notebook</h4>
     <p>
         This pipeline executes a durable Azure function app, monitors its status until the run completes, and then 
-        returns the appropriate output. This was used to execute an .ipynb python notebook through an Azure function app.
+        returns the appropriate output. This was used to execute a jupyter notebook through an Azure function app.
     <br><br>    
     <img src="../../images/azure/pipeline_execute_notebook.png" alt="Data Factory Pipeline" class="portfolio-image">    
     </p>
@@ -92,7 +92,7 @@
 
     <h4>dflow_service_users</h4>
     <p>
-        This data flows loads a json file retrieved from an API, and then performs a series of transformations
+        This dataflow loads a json file retrieved from an API, and then performs a series of transformations
         before loading the data into a SQL table. The transformations include flattening the json data, validating 
         the data, performing lookups and deriving values.
     <br><br>    
@@ -102,7 +102,7 @@
     <br><br>
     <h2>Function App</h2>
     <p>
-        The below function app was creating to execute jupyter notebooks. The function has an HTTP trigger, which 
+        The below function app was created to execute jupyter notebooks. The function has an HTTP trigger, which 
         executes an orchestrator function that monitors the status of the notebook execution. The orchestrator function
         is a durable function, which allows for long-running operations. The orchestrator executes the activity function, 
         which executes the notebook using papermill. Below are the three main functions used.

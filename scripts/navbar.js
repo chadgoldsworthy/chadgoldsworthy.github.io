@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "portfolio-powerbi.html": "portfolio-powerbi",
                 "about-me.html": "about-me",
                 "contact.html": "contact",
+                "education-experience.html": "education-experience",
             };
 
             // // Log all IDs inside the navbar
